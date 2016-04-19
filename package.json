@@ -1,0 +1,38 @@
+{
+  "name": "proton-quark-tiwilio",
+  "version": "1.0.0",
+  "description": "Quark to handle publisher/subscriber communication based on AMQP protocol using RabbitMQ service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "./node_modules/mocha/bin/mocha -R spec ./test/*.js"
+  },
+  "author": "Antonio Saad",
+  "license": "ISC",
+  "dependencies": {
+    "proton-quark": "^1.0.0",
+    "amqplib": "^0.4.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": ">= 0.0.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acsaadk/proton-quark-rabbitMQ.git"
+  },
+  "keywords": [
+    "RabbitMQ",
+    "AMQP",
+    "Quark",
+    "Proton",
+    "Microframework"
+  ],
+  "bugs": {
+    "url": "https://github.com/acsaadk/proton-quark-rabbitMQ/issues"
+  },
+  "homepage": "https://github.com/acsaadk/proton-quark-rabbitMQ#readme"
+}
