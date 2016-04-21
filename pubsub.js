@@ -9,15 +9,30 @@ class PubSub {
     this._tx = null;
   }
 
+  /**
+   * @method connect
+   * @description Connects to a AMQP server specified by a URL for both transmition and reception
+   * @author Antonio Saad
+   */
   connect(url){
     return this.connectForRx(url).connectForTx(this._rx)
   }
 
+  /**
+   * @method connectForRx
+   * @description Connects to a AMQP server specified by a URL just for reception (listening messages)
+   * @author Antonio Saad
+   */
   connectForRx(url){
     this._rx = (typeof url === 'string') ? amqplib.connect(url) : url
     return this
   }
 
+  /**
+   * @method connectForTx
+   * @description Connects to a AMQP server specified by a URL just for transmition (publish messages)
+   * @author Antonio Saad
+   */
   connectForTx(url){
     this._tx = (typeof url === 'string') ? amqplib.connect(url) : url
     return this
@@ -35,6 +50,11 @@ class PubSub {
     .then(results => results[0].sendToQueue(queue, new Buffer(JSON.stringify({data: msg})), opts)) // results[0] is the channel
   }
 
+  /**
+   * @method subscribe
+   * @description Subscribe to a specific queue and attends the incoming messages in the Promise returned
+   * @author Antonio Saad
+   */
   subscribe(queue, opts, noAck){
     if(this._rx === null) throw new Error("No connection available for consuming")
     return this._rx.then(conn => conn.createChannel())
