@@ -1,7 +1,7 @@
 const PubSub = require('../pubsub');
 const should = require('should');
 
-const URL = 'amqp://****';
+const URL = 'amqp://MWrhIIqz:F0b_qvFT5JURJgbcylnz7rQqYlZJrkWo@hiding-threarah-45.bigwig.lshift.net:11043/_g_VaWPW3DRC';
 
 describe('PubSub class test', () => {
 
