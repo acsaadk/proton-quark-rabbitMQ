@@ -1,5 +1,5 @@
 {
-  "name": "proton-quark-tiwilio",
+  "name": "proton-quark-rabbitMQ",
   "version": "1.0.0",
   "description": "Quark to handle publisher/subscriber communication based on AMQP protocol using RabbitMQ service",
   "main": "index.js",
