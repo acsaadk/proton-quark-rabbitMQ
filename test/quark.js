@@ -1,17 +1,18 @@
-const PubSub = require('../pubsub');
+const Quark = require('../index');
 const should = require('should');
 
-const URL = 'amqp://MWrhIIqz:F0b_qvFT5JURJgbcylnz7rQqYlZJrkWo@hiding-threarah-45.bigwig.lshift.net:11043/_g_VaWPW3DRC';
+describe('PubSub quark test', () => {
 
-describe('PubSub class test', () => {
+  it('should expose pubSub object globally', done => {
+    const quark = new Quark({})
+    quark.validate()
+    quark.initialize()
+    global.should.have.property('pubSub')
+    done()
+  })
 
-  const pubsub = new PubSub()
-  pubsub.connect(URL)
-
-  // Consumer
   it('should subscribe to a specific queue', done => {
-    pubsub
-    .subscribe('test_queue')
+    pubSub.subscribe('test_queue')
     .then(msg => {
       console.log(msg.content)
       done()
@@ -21,13 +22,16 @@ describe('PubSub class test', () => {
     })
   })
 
-  // Publisher
-  it('should publish a message to a specific queue', done => {
-    pubsub
-    .publish('test_queue', {id: 2435, desc: 'This is a test message published in test_queue'})
+  it('should publish to a specific queue', done => {
+    pubSub.publish('test_queue', {
+      id: 1234,
+      desc: "Hello from Test Queue"
+    })
     .then(result => {
-      console.log(result)
       done()
+    })
+    .catch(err => {
+      done(err)
     })
   })
 })

@@ -14,10 +14,10 @@ class AmqpPubSubQuark extends Quark {
 
   validate(){
     if(!TX) {
-      throw new Error("AMQP URL for transmition is missing")
+      throw new Error("MQP_URL_TX environment variable is missing. You can also set AMQP_URL for both tx and rx")
     }
     if(!RX) {
-      throw new Error("AMQP URL for reception is missing")
+      throw new Error("AMQP_URL_RX environment variable is missing. You can also set AMQP_URL for both tx and rx")
     }
   }
 
