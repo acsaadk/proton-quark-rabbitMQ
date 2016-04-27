@@ -1,13 +1,21 @@
-const Quark = require('../index');
-const should = require('should');
+const Quark = require('../index')
+const should = require('should')
 
 describe('PubSub quark test', () => {
 
-  it('should expose pubSub object globally', done => {
-    const quark = new Quark({})
+  it('should expose pubSub object and Queue class globally', done => {
+    const app = {
+      path: '',
+      config: {
+        rabbit: {}
+      }
+    }
+    const quark = new Quark({app})
     quark.validate()
+    quark.configure()
     quark.initialize()
     global.should.have.property('pubSub')
+    global.should.have.property('Queue')
     done()
   })
 
