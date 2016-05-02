@@ -1,6 +1,6 @@
 {
   "name": "proton-quark-rabbitMQ",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Quark to handle publisher/subscriber communication based on AMQP protocol using RabbitMQ service",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "proton-quark": "^1.0.0",
-    "amqplib": "^0.4.1",
+    "amqplib-pubsub": "^0.0.3",
     "lodash": "^4.0.0",
     "require-all": "^2.0.0"
   },

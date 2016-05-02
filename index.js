@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const Quark = require('proton-quark')
-const PubSub = require('./pubsub')
+const PubSub = require('amqplib-pubsub')
 const _ = require('lodash')
 
 class AmqpPubSubQuark extends Quark {
@@ -48,7 +48,7 @@ class AmqpPubSubQuark extends Quark {
 
   _subscribeQueues() {
     _.forEach(this._queues, queue => {
-      queue.subscribers.map(q => this.pubSub.subscribe(q.name).then(msg => q.cb(msg)))
+      queue.subscribers.map(q => this.pubSub.subscribe(q.name, q.cb))
     })
   }
 

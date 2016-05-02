@@ -19,24 +19,18 @@ describe('PubSub quark test', () => {
     done()
   })
 
+  it('should publish to a specific queue', done => {
+    pubSub.publish('test_queue', { id: 1, desc: "First message" })
+    .then(() => pubSub.publish('test_queue', { id: 2, desc: "Second message" }))
+    .then(result => done())
+    .catch(err => done(err))
+  })
+
   it('should subscribe to a specific queue', done => {
     pubSub.subscribe('test_queue')
     .then(msg => {
-      console.log(msg.content)
-      done()
-    })
-    .catch(err => {
-      done(err)
-    })
-  })
-
-  it('should publish to a specific queue', done => {
-    pubSub.publish('test_queue', {
-      id: 1234,
-      desc: "Hello from Test Queue"
-    })
-    .then(result => {
-      done()
+      console.log('Message', msg.content)
+      // done()
     })
     .catch(err => {
       done(err)
