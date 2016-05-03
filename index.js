@@ -28,9 +28,11 @@ class AmqpPubSubQuark extends Quark {
   }
 
   initialize() {
-    this.pubSub = new PubSub()
-    this.pubSub.connectForRx(this.tx).connectForTx(this.rx)
-    global.pubSub = this.pubSub
+    this.pubsub = new PubSub()
+    this.pubsub.connectForRx(this.tx).connectForTx(this.rx)
+    global.Rabbit = {
+      pubsub: this.pubsub
+    }
     global.Queue = require('./queue')
     this._loadControllers()
     this._subscribeQueues()
@@ -48,7 +50,7 @@ class AmqpPubSubQuark extends Quark {
 
   _subscribeQueues() {
     _.forEach(this._queues, queue => {
-      queue.subscribers.map(q => this.pubSub.subscribe(q.name, q.cb))
+      queue.subscribers.map(q => this.pubsub.subscribe(q.name, q.cb))
     })
   }
 
