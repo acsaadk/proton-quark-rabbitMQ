@@ -1,6 +1,6 @@
 {
-  "name": "proton-quark-rabbitMQ",
-  "version": "1.0.3",
+  "name": "proton-quark-rabbitmq",
+  "version": "0.0.1",
   "description": "Quark to handle publisher/subscriber communication based on AMQP protocol using RabbitMQ service",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acsaadk/proton-quark-rabbitMQ.git"
+    "url": "git+https://github.com/acsaadk/proton-quark-rabbitmq.git"
   },
   "keywords": [
     "RabbitMQ",
