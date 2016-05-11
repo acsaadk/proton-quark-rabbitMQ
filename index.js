@@ -76,7 +76,7 @@ module.exports = class RabbitmqQuark extends Quark {
   }
 
   get _controllers() {
-    const controllersPath = path.join(this.proton.app.path, '/queue-controllers')
+    const controllersPath = path.join(this.proton.app.path, '/queueCtrls')
     return fs.existsSync(controllersPath) ? require('require-all')(controllersPath) : {}
   }
 }
