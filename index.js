@@ -66,7 +66,7 @@ module.exports = class RabbitmqQuark extends Quark {
    */
   _subscribeQueues() {
     _.forEach(this._queues, queue => {
-      queue.subscribers.map(q => this.pubsub.subscribe(q.name, q.cb))
+      queue.subscribers.map(q => this.pubsub.subscribe(q.name, co.wrap(q.cb)))
     })
   }
 
