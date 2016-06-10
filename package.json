@@ -1,6 +1,6 @@
 {
   "name": "proton-quark-rabbitmq",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Quark to handle publisher/subscriber communication based on AMQP protocol using RabbitMQ service",
   "main": "index.js",
   "scripts": {
